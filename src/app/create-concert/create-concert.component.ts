@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ConcertService } from '../concert.service';
@@ -24,8 +25,6 @@ export class CreateConcertComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    //TODO: display spinner
 
     // edit an existing concert 
     if (this.router.url.match('/edit')) {

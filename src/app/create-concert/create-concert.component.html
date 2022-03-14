@@ -1,0 +1,28 @@
+<!-- form validation, Datum aktualisiert sich nicht auf wert vom model, navi ausklappen geht nicht responsive, navi zeigt nicht ausgewähltes element an -->
+
+<form (submit)="saveConcertForm()">
+    <div class="container-sm mt-3">
+
+    <div class="mb-3">
+        <label class="form-label" for="bandName">Name der Band</label>
+        <input type="text" required class="form-control" name="bandName" [(ngModel)]="concertModel.bandName" >
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="description">Beschreibung</label>
+        <textarea  class="form-control" required name="description" [(ngModel)]="concertModel.description"> </textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="description">Ort</label>
+        <input type="text" required class="form-control" name="place" [(ngModel)]="concertModel.place">
+    </div>
+    <div class="form-check">
+        <label class="form-label" for="outdoor">Veranstaltung im Freien</label>
+        <input type="checkbox" class="form-check-input" id="outdoor" name="outdoor" [(ngModel)]="concertModel.outdoor">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="startDate">Datum</label>
+        <input type="datetime-local" required class="form-control datetime" name="startDate" [(ngModel)]="concertModel.startDate">
+    </div>
+    <button type="submit" class="btn btn-primary">Veröffentlichen</button>
+    </div>
+</form>

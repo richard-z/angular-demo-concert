@@ -1,0 +1,36 @@
+<div class="container-sm mt-3">
+   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col" *ngFor="let concert of concertsInView">
+         <div class="card shadow-sm">
+
+            <!-- repeat the 4 images according to id-->
+            <img *ngIf="concert.id % 4 == 0" src="assets/mic.jpg" class="card-img-top" alt="Microphone">
+            <img *ngIf="concert.id % 4 == 1" src="assets/guitar_solo.jpg" class="card-img-top" alt="Guitar Solo">
+            <img *ngIf="concert.id % 4 == 2" src="assets/violin.jpg" class="card-img-top" alt="Orchestra">
+            <img *ngIf="concert.id % 4 == 3" src="assets/bbking.jpg" class="card-img-top" alt="B. B King">
+            
+            <div class="card-body">
+               <h5 class="card-title">{{concert.bandName}}</h5>
+               <p class="card-text"> {{concert.description}} </p>
+               <p *ngIf="concert.outdoor">Konzert im Freien <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+                  <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                </svg></p>
+               <p class=""> @ {{ concert.place }} | {{concert.startDate | date: 'dd.MM.yy HH:mm'}}</p>
+
+               <button type="button" class="btn btn-primary card-link"
+               (click)="editConcertButton(this.concert.id)">Bearbeiten</button>
+            <button type="button" class="btn btn-danger card-link" (click)="deleteConcertButton(this.concert.id)">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+                  viewBox="0 0 16 16">
+                  <path
+                     d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                  <path fill-rule="evenodd"
+                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+               </svg>
+            </button>
+            </div>
+            
+         </div>
+      </div>
+   </div>
+</div>

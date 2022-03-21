@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label" for="startDate">Datum</label>
-        <input type="datetime-local" required class="form-control datetime" name="startDate" [(ngModel)]="concertModel.startDate">
+        <input type="datetime-local" required class="form-control datetime" name="startDate" [ngModel]="concertModel.startDate | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="concertModel.startDate = $event">
     </div>
     <button type="submit" class="btn btn-primary">Veröffentlichen</button>
     </div>
